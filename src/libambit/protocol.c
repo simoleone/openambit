@@ -22,6 +22,7 @@
 #include "protocol.h"
 #include "libambit_int.h"
 #include "crc16.h"
+#include "portable/endian.h"
 
 #include "hidapi/hidapi.h"
 

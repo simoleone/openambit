@@ -22,6 +22,7 @@
 #include "device_driver_common.h"
 #include "protocol.h"
 #include "debug.h"
+#include "portable/endian.h"
 
 #include <stdlib.h>
 

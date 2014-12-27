@@ -21,6 +21,7 @@
  */
 #include "device_support.h"
 #include "device_driver.h"
+#include "portable/endian.h"
 
 #include <string.h>
 

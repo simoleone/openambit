@@ -26,6 +26,7 @@
 #include "pmem20.h"
 #include "personal.h"
 #include "debug.h"
+#include "portable/endian.h"
 
 #include <stdlib.h>
 #include <string.h>

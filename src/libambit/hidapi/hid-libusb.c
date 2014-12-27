@@ -47,6 +47,8 @@
 #include "libusb.h"
 #include "iconv.h"
 
+#include "../portable/endian.h"
+#include "../portable/pthread_barrier.h"
 #include "hidapi.h"
 
 #ifdef __cplusplus
@@ -1027,7 +1029,12 @@ int HID_API_EXPORT hid_read_timeout(hid_device *dev, unsigned char *data, size_t
 		/* Non-blocking, but called with timeout. */
 		int res;
 		struct timespec ts;
-		clock_gettime(CLOCK_REALTIME, &ts);
+		struct timeval tv;
+
+		gettimeofday(&tv, NULL);
+		ts.tv_sec = tv.tv_sec;
+		ts.tv_nsec = tv.tv_usec * 1000;
+
 		ts.tv_sec += milliseconds / 1000;
 		ts.tv_nsec += (milliseconds % 1000) * 1000000;
 		if (ts.tv_nsec >= 1000000000L) {

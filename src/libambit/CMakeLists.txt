@@ -34,6 +34,7 @@ add_library (
   sbem0102.c
   sha256.c
   utils.c
+  portable/pthread_barrier.c
   ${HIDAPI_SOURCE_FILES}
 )
 
@@ -41,6 +42,7 @@ target_link_libraries(
   ambit
   ${HIDAPI_LIBS}
   m
+  iconv
 )
 
 set_target_properties(ambit PROPERTIES VERSION 0.3.0 SOVERSION 0)
